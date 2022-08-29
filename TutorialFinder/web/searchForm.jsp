@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix='s' uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,9 @@
 <title>Search Form</title>
 </head>
 <body>
-<form method="post" action="tutorials/getTutorial">
-	<input id="language" name="language" />
-	<input type="submit" />
-</form>
+<s:form action="tutorials/getTutorial">
+	<s:textfield label="Enter the Language" key="language" />
+	<s:submit />
+</s:form>
 </body>
 </html>
