@@ -1,45 +1,41 @@
 package org.test.learning.action;
 
 import org.apache.commons.lang3.StringUtils;
+import org.test.learning.model.User;
+import org.test.learning.service.LoginService;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport{
 	
-	private String userId;
-	private String password;
+	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public void validate() {
-		if (StringUtils.isEmpty(getUserId())) {
-			addFieldError("userId", "User ID cannot be blank");
+		if (StringUtils.isEmpty(user.getUserId())) {
+			addFieldError("userId", "User ID Cannot be blank");
 		}
 		
-		if (StringUtils.isEmpty(getPassword())) {
-			addFieldError("password", "Password cannot be blank");
+		if (StringUtils.isEmpty(user.getUserId())) {
+			addFieldError("password", "Password Cannot be blank");
 		}
 	}
 	
 	public String execute() {
-		if (getUserId().equals("userId") && getPassword().equals("password")) {
+		LoginService loginService = new LoginService();
+		
+		if (loginService.verifylogin(user)) {
 			return SUCCESS;
 			}
 		return LOGIN;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 }

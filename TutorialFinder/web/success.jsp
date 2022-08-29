@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Best Tutorial Site is
 <s:property value="bestTutorialSite" />
 </body>
 </html>
