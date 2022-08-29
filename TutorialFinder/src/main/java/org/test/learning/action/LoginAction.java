@@ -1,15 +1,17 @@
 package org.test.learning.action;
 
-public class LoginAction {
+import com.opensymphony.xwork2.Action;
+
+public class LoginAction implements Action{
 	
 	private String userId;
 	private String password;
 	
 	public String execute() {
 		if (getUserId().equals("userId") && getPassword().equals("password")) {
-			return "success";
-		}
-		return "failure";
+			return SUCCESS;
+			}
+		return LOGIN;
 	}
 
 	public String getUserId() {
