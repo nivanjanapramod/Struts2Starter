@@ -5,6 +5,13 @@
 	
 	
 <struts>
+	<package name="login" namespace="/" extends="struts-default">
+		<action name="login" class="org.test.learning.action.LoginAction">
+			<result name="success">/searchForm.jsp</result>
+			<result name="failure">/login.jsp</result>
+		</action>
+	</package>
+	
 	<package name="default" namespace="/tutorials" extends="struts-default">
 		<action name="getTutorial" class="org.test.learning.action.TutorialAction">
 			<result name="success">/success.jsp</result>
